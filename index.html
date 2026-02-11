@@ -352,63 +352,7 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Optional endpoint (Power Automate / serverless).
-    // Leave blank to use mailto fallback.
-    const ENDPOINT_URL = "";
-
-    const form = document.getElementById('leadForm');
-    const statusEl = document.getElementById('formStatus');
-
-    function setStatus(type, msg){
-      statusEl.className = 'status ' + (type === 'ok' ? 'ok' : 'err');
-      statusEl.textContent = msg;
-    }
-
-    function mailtoFallback(payload){
-      const subject = encodeURIComponent("Toledo Retail Lead: " + (payload.goal || "Inquiry"));
-      const body = encodeURIComponent(
-        `Name: ${payload.name}\n` +
-        `Business: ${payload.company || ""}\n` +
-        `Email: ${payload.email}\n` +
-        `Phone: ${payload.phone || ""}\n` +
-        `Goal: ${payload.goal}\n\n` +
-        `Message:\n${payload.message || ""}\n`
-      );
-      window.location.href = `mailto:kcox@toledoretail.com?subject=${subject}&body=${body}`;
-      setStatus('ok', 'Opening your email client to send the request…');
-    }
-
-    async function postToEndpoint(payload){
-      const res = await fetch(ENDPOINT_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      return res.ok;
-    }
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const payload = Object.fromEntries(new FormData(form).entries());
-
-      try{
-        if (ENDPOINT_URL && ENDPOINT_URL.startsWith("https://")) {
-          const ok = await postToEndpoint(payload);
-          if (ok) {
-            setStatus('ok', 'Thanks—your request was sent.');
-            form.reset();
-          } else {
-            setStatus('err', 'Could not send via endpoint. Opening email draft instead…');
-            mailtoFallback(payload);
-          }
-        } else {
-          mailtoFallback(payload);
-        }
-      } catch {
-        setStatus('err', 'Could not send. Opening email draft instead…');
-        mailtoFallback(payload);
-      }
-    });
+   
   </script>
 </body>
 </html>
