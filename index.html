@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Toledo Retail | Local Digital Marketing</title>
+  <meta name="description" content="Grow your Toledo retail sales with local digital marketing—campaigns, landing pages, QR tracking, and automation." />
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1a33;
+      --text:#eaf0ff;
+      --muted:#b8c2e0;
+      --line:rgba(255,255,255,.12);
+      --accent:#4aa3ff;
+      --accent2:#7dd3fc;
+      --shadow: 0 16px 40px rgba(0,0,0,.35);
+      --radius: 18px;
+      --max: 1120px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      background:
+        radial-gradient(900px 450px at 20% 0%, rgba(74,163,255,.28), transparent 60%),
+        radial-gradient(900px 450px at 80% 0%, rgba(125,211,252,.18), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.45;
+    }
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px}
+    a{color:inherit}
+    .card{
+      background: rgba(15,26,51,.78);
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px; padding:10px 0 18px;
+    }
+    .brand{display:flex; align-items:center; gap:12px; text-decoration:none}
+    .brand img{height:34px; width:auto}
+    .navlinks{display:flex; gap:14px; flex-wrap:wrap}
+    .navlinks a{opacity:.9; text-decoration:none; font-weight:700; font-size:14px}
+    .navlinks a:hover{opacity:1; text-decoration:underline}
+
+    .btn{
+      appearance:none; border:0; cursor:pointer; text-decoration:none;
+      padding:12px 16px; border-radius:999px; font-weight:900;
+      display:inline-flex; align-items:center; justify-content:center;
+      transition:transform .08s ease, filter .15s ease;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn.primary{
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color:#06101f;
+      box-shadow: 0 12px 28px rgba(74,163,255,.22);
+    }
+    .btn.ghost{background:transparent; border:1px solid var(--line); color:var(--text)}
+
+    .hero{
+      display:grid; grid-template-columns: 1.1fr .9fr; gap:18px;
+      align-items:stretch;
+    }
+    @media (max-width: 980px){ .hero{grid-template-columns:1fr} }
+
+    .hero-left{padding:22px}
+    .kicker{
+      display:inline-flex; gap:8px; align-items:center;
+      padding:6px 10px; border:1px solid var(--line);
+      border-radius:999px; color:var(--muted); font-weight:900; font-size:12px;
+      background: rgba(255,255,255,.03);
+    }
+    h1{margin:14px 0 10px; font-size:42px; line-height:1.06}
+    @media(max-width:480px){h1{font-size:34px}}
+    .sub{color:var(--muted); font-size:16px; max-width:65ch}
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:16px}
+
+    .hero-right{padding:0; overflow:hidden}
+    .hero-right img{width:100%; height:100%; object-fit:cover; display:block; min-height:260px}
+
+    .section{margin-top:22px}
+    .section h2{margin:0 0 10px; font-size:26px}
+    .section p{margin:0 0 14px; color:var(--muted)}
+
+    .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    @media (max-width: 980px){ .grid{grid-template-columns:1fr} }
+
+    .feature{padding:16px}
+    .feature b{display:block; margin-bottom:6px}
+    .feature span{color:var(--muted)}
+
+    .media{
+      display:grid; grid-template-columns: 1fr 1fr; gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width: 980px){ .media{grid-template-columns:1fr} }
+    .media img{width:100%; height:260px; object-fit:cover; border-radius:14px; border:1px solid var(--line)}
+
+    .videoWrap{
+      position:relative; width:100%; padding-top:56.25%;
+      border-radius:14px; overflow:hidden; border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .videoWrap iframe{
+      position:absolute; inset:0; width:100%; height:100%; border:0;
+    }
+
+    .contact{
+      display:grid; grid-template-columns:1fr 1fr; gap:14px;
+      margin-top:14px;
+    }
+    @media (max-width: 980px){ .contact{grid-template-columns:1fr} }
+    .contact .card{padding:16px}
+
+    label{display:block; font-size:13px; font-weight:900; margin:10px 0 6px}
+    input, textarea, select{
+      width:100%;
+      padding:12px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+      color:var(--text);
+      outline:none;
+    }
+    textarea{min-height:110px; resize:vertical}
+    input:focus, textarea:focus, select:focus{border-color: rgba(125,211,252,.65)}
+    .row{display:grid; grid-template-columns:1fr 1fr; gap:12px}
+    @media(max-width:560px){.row{grid-template-columns:1fr}}
+
+    .status{
+      margin-top:10px; font-weight:900; font-size:14px;
+      padding:10px 12px; border-radius:12px; display:none;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.03);
+    }
+    .status.ok{display:block; border-color: rgba(34,197,94,.45); background: rgba(34,197,94,.10)}
+    .status.err{display:block; border-color: rgba(255,77,77,.55); background: rgba(255,77,77,.10)}
+
+    footer{
+      border-top:1px solid var(--line);
+      margin-top:22px;
+      padding-top:14px;
+      color:var(--muted);
+      font-size:13px;
+      display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="#top" aria-label="Toledo Retail Home">
+        <img
+          src="https://static.wixstatic.com/media/d56eb7_13c3515a42b345bf86040392f02ce58f~mv2.jpg/v1/fill/w_302,h_96,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/TRLOGO.jpg"
+          alt="Toledo Retail"
+        />
+      </a>
+
+      <div class="navlinks">
+        <a href="#how">How it works</a>
+        <a href="#services">Services</a>
+        <a href="#video">Video</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <a class="btn primary" href="#contact">Get a Free Plan</a>
+    </nav>
+
+    <section id="top" class="hero">
+      <div class="card hero-left">
+        <div class="kicker">📍 Built for Toledo retailers</div>
+        <h1>Grow Your Toledo Retail Sales with Local Digital Marketing</h1>
+        <p class="sub">
+          Turn more local attention into real customers with a simple system:
+          a high-conversion landing page, QR tracking, lead capture, and follow-up automation.
+        </p>
+
+        <div class="cta">
+          <a class="btn primary" href="#contact">Request a Free Strategy Plan</a>
+          <a class="btn ghost" href="#services">See services</a>
+        </div>
+      </div>
+
+      <div class="card hero-right" aria-label="Hero image">
+        <img
+          src="https://static.wixstatic.com/media/d56eb7_f2d40c21889e423587593cf149dbf7a0~mv2.jpg/v1/fill/w_963,h_251,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/shutterstock_1119571079.jpg"
+          alt="Local customers on phones"
+        />
+      </div>
+    </section>
+
+    <section id="how" class="section">
+      <h2>How it works</h2>
+      <p>One focused flow that turns traffic into leads—then turns leads into customers.</p>
+
+      <div class="grid">
+        <div class="card feature">
+          <b>1) Offer</b>
+          <span>We clarify your offer and create a single, strong call-to-action.</span>
+        </div>
+        <div class="card feature">
+          <b>2) Landing Page + Tracking</b>
+          <span>We connect QR codes + tracked links to a page designed to convert.</span>
+        </div>
+        <div class="card feature">
+          <b>3) Follow-up</b>
+          <span>Leads route to you instantly—plus optional automation and reporting.</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section">
+      <h2>What we do</h2>
+      <p>Practical marketing + systems that local retailers can actually use.</p>
+
+      <div class="grid">
+        <div class="card feature">
+          <b>Local Campaigns</b>
+          <span>Promos, events, seasonal offers, and quick-turn campaigns.</span>
+        </div>
+        <div class="card feature">
+          <b>Lead Capture</b>
+          <span>Forms, call tracking, booking links, and routing to the right person.</span>
+        </div>
+        <div class="card feature">
+          <b>Automation</b>
+          <span>Email/SMS follow-up, CRM entry, and reporting (optional).</span>
+        </div>
+      </div>
+
+      <div class="media">
+        <img
+          src="https://static.wixstatic.com/media/d56eb7_4bf5454fb0bf48aa9c973d59a5c88647~mv2_d_4113_2917_s_4_2.jpg/v1/fill/w_261,h_187,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/d56eb7_4bf5454fb0bf48aa9c973d59a5c88647~mv2_d_4113_2917_s_4_2.jpg"
+          alt="Bar inventory"
+        />
+        <img
+          src="https://static.wixstatic.com/media/d56eb7_a37492e9be3345cbb729149327b2f473~mv2.jpg/v1/fill/w_267,h_179,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/shutterstock_732282226.jpg"
+          alt="Restaurant operations"
+        />
+      </div>
+    </section>
+
+    <section id="video" class="section">
+      <h2>Quick overview video</h2>
+      <p>Replace the iframe URL below with your existing video link (YouTube/Vimeo embed).</p>
+
+      <div class="videoWrap">
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          title="Toledo Retail Overview"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <h2>Get your free plan</h2>
+      <p>Tell me what you sell and who you’re targeting. I’ll reply with a simple plan you can execute.</p>
+
+      <div class="contact">
+        <div class="card">
+          <form id="leadForm">
+            <div class="row">
+              <div>
+                <label for="name">Name</label>
+                <input id="name" name="name" autocomplete="name" required />
+              </div>
+              <div>
+                <label for="company">Business</label>
+                <input id="company" name="company" autocomplete="organization" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </div>
+              <div>
+                <label for="phone">Phone</label>
+                <input id="phone" name="phone" autocomplete="tel" />
+              </div>
+            </div>
+
+            <label for="goal">Primary goal</label>
+            <select id="goal" name="goal" required>
+              <option value="" disabled selected>Select one</option>
+              <option>More calls</option>
+              <option>More quote requests</option>
+              <option>More in-store traffic</option>
+              <option>Book appointments</option>
+              <option>Other</option>
+            </select>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="What are you trying to promote?"></textarea>
+
+            <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:14px">
+              <button class="btn primary" type="submit">Send</button>
+              <a class="btn ghost" href="mailto:kcox@toledoretail.com?subject=Toledo%20Retail%20Lead">Email instead</a>
+            </div>
+
+            <div id="formStatus" class="status" role="status" aria-live="polite"></div>
+
+            <p style="color:var(--muted); font-size:13px; margin:10px 0 0">
+              Note: This embedded form uses an email-draft fallback. For true “send to inbox,” connect it to Netlify Forms or an endpoint.
+            </p>
+          </form>
+        </div>
+
+        <div class="card" style="padding:16px">
+          <b>Contact</b>
+          <p style="margin:8px 0; color:var(--muted)">
+            Email: <a href="mailto:kcox@toledoretail.com">kcox@toledoretail.com</a><br />
+            Phone: <a href="tel:+14195096707">419-509-6707</a>
+          </p>
+
+          <div class="card" style="padding:14px; box-shadow:none; margin-top:10px">
+            <b>Best next step</b>
+            <p style="margin:6px 0 0; color:var(--muted)">
+              Submit the form with your offer + audience, and I’ll respond with a simple plan and timeline.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> Toledo Retail</div>
+      <div>
+        <a href="#how">How it works</a> ·
+        <a href="#services">Services</a> ·
+        <a href="#contact">Contact</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Optional endpoint (Power Automate / serverless).
+    // Leave blank to use mailto fallback.
+    const ENDPOINT_URL = "";
+
+    const form = document.getElementById('leadForm');
+    const statusEl = document.getElementById('formStatus');
+
+    function setStatus(type, msg){
+      statusEl.className = 'status ' + (type === 'ok' ? 'ok' : 'err');
+      statusEl.textContent = msg;
+    }
+
+    function mailtoFallback(payload){
+      const subject = encodeURIComponent("Toledo Retail Lead: " + (payload.goal || "Inquiry"));
+      const body = encodeURIComponent(
+        `Name: ${payload.name}\n` +
+        `Business: ${payload.company || ""}\n` +
+        `Email: ${payload.email}\n` +
+        `Phone: ${payload.phone || ""}\n` +
+        `Goal: ${payload.goal}\n\n` +
+        `Message:\n${payload.message || ""}\n`
+      );
+      window.location.href = `mailto:kcox@toledoretail.com?subject=${subject}&body=${body}`;
+      setStatus('ok', 'Opening your email client to send the request…');
+    }
+
+    async function postToEndpoint(payload){
+      const res = await fetch(ENDPOINT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      return res.ok;
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const payload = Object.fromEntries(new FormData(form).entries());
+
+      try{
+        if (ENDPOINT_URL && ENDPOINT_URL.startsWith("https://")) {
+          const ok = await postToEndpoint(payload);
+          if (ok) {
+            setStatus('ok', 'Thanks—your request was sent.');
+            form.reset();
+          } else {
+            setStatus('err', 'Could not send via endpoint. Opening email draft instead…');
+            mailtoFallback(payload);
+          }
+        } else {
+          mailtoFallback(payload);
+        }
+      } catch {
+        setStatus('err', 'Could not send. Opening email draft instead…');
+        mailtoFallback(payload);
+      }
+    });
+  </script>
+</body>
+</html>
