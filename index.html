@@ -253,8 +253,8 @@
 
       <div class="videoWrap">
         <iframe
-          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-          title="Toledo Retail Overview"
+          src="https://www.youtube.com/embed/oKoOHtdANtI"
+          title="Join the Retail Revolution with ToledoRetail.org"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
         ></iframe>
@@ -267,7 +267,12 @@
 
       <div class="contact">
         <div class="card">
-          <form id="leadForm">
+          <form id="leadForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html">
+  <input type="hidden" name="form-name" value="contact" />
+  <p style="display:none;">
+    <label>Don’t fill this out: <input name="bot-field" /></label>
+  </p>
+
             <div class="row">
               <div>
                 <label for="name">Name</label>
